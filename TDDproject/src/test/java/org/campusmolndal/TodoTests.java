@@ -1,4 +1,4 @@
 package org.campusmolndal;
 
-public class ToDoTests {
+public class TodoTests {
 }
