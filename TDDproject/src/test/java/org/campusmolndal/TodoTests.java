@@ -2,7 +2,6 @@ package org.campusmolndal;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -43,6 +42,14 @@ public class TodoTests {
   String actualId = todoMock.get_id();
   assertEquals(expectedId, actualId);
  }
+
+ @Test
+    void toStringTest() {
+    String expectedString = "mocked text, true, mocked id";
+    String actualString = todoMock.toString();
+    assertEquals(expectedString, actualString);
+    }
+
 
 
 }

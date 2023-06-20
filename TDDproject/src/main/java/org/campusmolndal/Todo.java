@@ -25,6 +25,10 @@ public class Todo {
         return done;
     }
 
+    public String toString() {
+        return text + ", " + done + ", " + _id;
+    }
+
 }
 
 
