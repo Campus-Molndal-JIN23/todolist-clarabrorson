@@ -53,9 +53,13 @@ public class MongoDbFacade {
             System.out.println("Misslyckad anslutning!"); // Skriver ut ett meddelande om anslutningen misslyckades.
             System.out.println(ex.getMessage()); // Skriver ut felet som orsakade anslutningsmisslyckandet.
         }
-
-
     }
+
+    // Utför CRUD operationer
+
+
+
+
 
 
 }
