@@ -1,5 +1,7 @@
 package org.campusmolndal;
 
+import org.bson.Document;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,10 +11,12 @@ import static org.mockito.Mockito.when;
 public class TodoTests {
 
  private Todo todoMock;
+ private Document docMock;
 
  @BeforeEach
  void setUp() {
   todoMock = mock(Todo.class);
+  docMock = mock(Document.class);
 
   Todo mockedTodo = new Todo("mocked id", "mocked text", true);
 
@@ -20,6 +24,37 @@ public class TodoTests {
   when(todoMock.isDone()).thenReturn(mockedTodo.isDone());
   when(todoMock.get_id()).thenReturn(mockedTodo.get_id());
   when(todoMock.toString()).thenReturn("mocked text, true, mocked id");
+  when(docMock.getString("_id")).thenReturn("test id");
+  when(docMock.getString("text")).thenReturn("Test Todo");
+  when(docMock.getBoolean("done")).thenReturn(true);
+
+ }
+ @Test
+ void testFromDoc() {
+  // Anropa metoden fromDoc() med det mockade Document-objektet
+  Todo todo = Todo.fromDoc(docMock);
+
+  // Kontrollera att rätt värden har returnerats
+  assertEquals("test id", todo.get_id());
+  assertEquals("Test Todo", todo.getText());
+  assertEquals(true, todo.isDone());
+ }
+ @Test
+ void testToDoc() {
+  // Definiera förväntade värden för metoden toDoc()
+  Document expectedDoc = new Document()
+          .append("_id", "test id")
+          .append("text", "Test Todo")
+          .append("done", true);
+
+  when(todoMock.toDoc()).thenReturn(expectedDoc);
+  // Anropa metoden toDoc() på den mockade Todo-objektet
+  Document doc = todoMock.toDoc();
+
+  // Kontrollera att rätt värden har returnerats
+  assertEquals("test id", doc.getString("_id"));
+  assertEquals("Test Todo", doc.getString("text"));
+  assertEquals(true, doc.getBoolean("done"));
  }
 
  @Test
@@ -49,7 +84,5 @@ public class TodoTests {
     String actualString = todoMock.toString();
     assertEquals(expectedString, actualString);
     }
-
-
 
 }
