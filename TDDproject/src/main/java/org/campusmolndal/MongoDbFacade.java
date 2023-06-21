@@ -10,6 +10,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MongoDbFacade {
     MongoClient client; //Instans av MongoDB-klienten som används för att ansluta till en databas.
     MongoDatabase db; //Instansen av en databas som används för att kommunicera med databasen.
@@ -57,7 +60,36 @@ public class MongoDbFacade {
 
     // Utför CRUD operationer
 
+    public void addTodo(Todo todo) {
+        Document doc = todo.toDoc();
+        collection.insertOne(doc);
+    }
+    public void updateTodoById(String id, Todo updatedTodo) {
+        Document filter = new Document("_id", id);
+        Document update = new Document("$set", updatedTodo.toDoc());
+        collection.updateOne(filter, update);
+    }
+    public void deleteTodoById(String id) {
+        Document filter = new Document("_id", id);
+        collection.deleteOne(filter);
+    }
 
+    public Todo getTodoById(String id) {
+        Document filter = new Document("_id", id);
+        Document doc = collection.find(filter).first();
+        if (doc != null) {
+            return Todo.fromDoc(doc);
+        }
+        return null;
+    }
+    public List<Todo> getAllTodos() {
+        List<Todo> todos = new ArrayList<>();
+        for (Document doc : collection.find()) {
+            Todo todo = Todo.fromDoc(doc);
+            todos.add(todo);
+        }
+        return todos;
+    }
 
 
 
