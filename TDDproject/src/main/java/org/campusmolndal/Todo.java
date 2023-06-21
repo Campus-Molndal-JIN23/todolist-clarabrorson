@@ -8,8 +8,7 @@ public class Todo {
     String text;
     boolean done;
 
-    // skapa en konstruktor
-    public Todo(String _id, String text, boolean done) {
+    public Todo(String _id,String text, boolean done) {
         this._id = _id;
         this.text = text;
         this.done = done;
@@ -47,9 +46,6 @@ public class Todo {
     public String toString() {
         return text + ", " + done + ", " + _id;
     }
-
-
-
 }
 
 

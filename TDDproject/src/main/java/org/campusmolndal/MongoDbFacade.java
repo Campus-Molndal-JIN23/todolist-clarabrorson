@@ -8,6 +8,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.IndexOptions;
 import org.bson.Document;
 
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public class MongoDbFacade {
     KeyReader KeyReader = new KeyReader("todoKey"); // SKapa en instans av KeyReader
 
     String connString = KeyReader.getKey(); // MongoDB-anslutningssträngen som definierar plats för databasen.
-    String collectionName = "Todo"; // Namnet på den samling/dokument som innehåller todo
-    String databaseName = "TodoDB"; // Namnet på databasen
+    String collectionName = "todo"; // Namnet på den samling/dokument som innehåller todo
+    String databaseName = "todoDB"; // Namnet på databasen
 
     public MongoDbFacade(String connString, String databaseName, String collectionName) {
         this.connString = connString;
@@ -57,6 +58,11 @@ public class MongoDbFacade {
             System.out.println(ex.getMessage()); // Skriver ut felet som orsakade anslutningsmisslyckandet.
         }
     }
+    // Metod för att skapa ett index på todo-fältet i samlingen.
+    public void createIndex() {
+        collection.createIndex(new Document("todo", 1),
+                new IndexOptions().unique(true));
+    }
 
     // Utför CRUD operationer
 
@@ -64,11 +70,13 @@ public class MongoDbFacade {
         Document doc = todo.toDoc();
         collection.insertOne(doc);
     }
+
     public void updateTodoById(String id, Todo updatedTodo) {
         Document filter = new Document("_id", id);
         Document update = new Document("$set", updatedTodo.toDoc());
         collection.updateOne(filter, update);
     }
+
     public void deleteTodoById(String id) {
         Document filter = new Document("_id", id);
         collection.deleteOne(filter);
@@ -82,6 +90,7 @@ public class MongoDbFacade {
         }
         return null;
     }
+
     public List<Todo> getAllTodos() {
         List<Todo> todos = new ArrayList<>();
         for (Document doc : collection.find()) {
@@ -91,9 +100,21 @@ public class MongoDbFacade {
         return todos;
     }
 
+    public void addSampleTodos() {
+        Todo todo1 = new Todo("1", "Köpa kaffe", false);
+        Todo todo2 = new Todo("2", "Hämta paket", true);
+        Todo todo3 = new Todo("3", "Föräldramöte kl 15", false);
+        try {
+            addTodo(todo1);
+            addTodo(todo2);
+            addTodo(todo3);
 
-
-
+            System.out.println("Todos tillagda i databasen!");
+        } catch (Exception ex) {
+            System.out.println("Misslyckades att lägga till todos i databasen!");
+            System.out.println(ex.getMessage());
+        }
+    }
 }
 
 
