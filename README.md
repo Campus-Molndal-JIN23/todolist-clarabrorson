@@ -18,8 +18,6 @@ The project gave me valuable experience implementing CRUD operations and integra
 + Import the project folder and its accompanying libraries.
 + Launch the program from the Main class.
   
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-
 ## License
 
 [MIT License](https://choosealicense.com/licenses/mit/).
