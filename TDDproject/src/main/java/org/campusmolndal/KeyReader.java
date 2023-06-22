@@ -11,11 +11,11 @@ public class KeyReader {
         // Hämta sökvägen till användarens hemkatalog
         String userHome = System.getProperty("user.home");
 
-        String filename= userHome + "/Documents/todoKey/" + file + ".txt";
+        String filename= "/Documents/todoKey/" + file + ".txt";
         File newfile = new File("/Documents/todoKey/" + file + ".txt");
         if (!newfile.exists()) {
             try {
-                // skapa standardproperties i minnet (så Marcus slipper krångla med filen :D )
+                // skapa standardproperties i minnet (så Marcus slipper krångla med filen :D)
                 prop.setProperty("connectionString", "mongodb://localhost:27017");
                 prop.setProperty("database", "todoDB");
                 prop.setProperty("collection", "todo");

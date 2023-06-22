@@ -32,14 +32,17 @@ public class Todo {
     }
 
     public String get_id() {
+
         return _id;
     }
 
     public String getText() {
+
         return text;
     }
 
-    public boolean isDone() {
+    public boolean isDone()
+    {
         return done;
     }
 

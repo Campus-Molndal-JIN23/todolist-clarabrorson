@@ -18,9 +18,9 @@ public class MongoDbFacade {
     MongoClient client; //Instans av MongoDB-klienten som används för att ansluta till en databas.
     MongoDatabase db; //Instansen av en databas som används för att kommunicera med databasen.
     MongoCollection<Document> collection; //MongoCollection innehåller dokument som lagras i databasen.
-    KeyReader KeyReader = new KeyReader("todoKey"); // SKapa en instans av KeyReader
+    KeyReader keyReader = new KeyReader("todoKey"); // SKapa en instans av KeyReader
 
-    String connString = KeyReader.getKey(); // MongoDB-anslutningssträngen som definierar plats för databasen.
+    String connString = keyReader.getKey(); // MongoDB-anslutningssträngen som definierar plats för databasen.
     String collectionName = "todo"; // Namnet på den samling/dokument som innehåller todo
     String databaseName = "todoDB"; // Namnet på databasen
 
