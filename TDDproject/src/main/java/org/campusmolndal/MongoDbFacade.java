@@ -50,7 +50,7 @@ public class MongoDbFacade {
             client = MongoClients.create(settings); // Skapar en instans av MongoDB-klienten.
             db = client.getDatabase(databaseName); // Hämtar instansen av databasen.
             collection = db.getCollection(collectionName); // Hämtar instansen av samlingen.
-            System.out.println("Anslutning lyckades!"); // Skriver ut ett meddelande om anslutningen lyckades.
+
 
         } catch (Exception ex) {
 

@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class Menu {
 
-    //Meny
-    //Switch case
-    //Anropa metoder från MongoDbFacade
     private Application application;
     private Scanner scanner;
     private Scanner lineScanner;
@@ -25,31 +22,31 @@ public class Menu {
         boolean exit = false;
 
         while (!exit) {
+            System.out.println("Välkommen till Todo-appen!");
             System.out.println("1. Lägg till en todo");
             System.out.println("2. Visa en todo");
             System.out.println("3. Visa alla todos");
             System.out.println("4. Uppdatera en todo");
             System.out.println("5. Ta bort en todo");
             System.out.println("6. Avsluta");
-            System.out.println("Välj ett alternativ: ");
-
+            System.out.println();
             int choice = getIntInput("Ange ditt val: ");
 
             switch (choice) {
                 case 1:
-                    application.addTodo();
+                    application.addToDo();
                     break;
                 case 2:
-                    application.showTodo();
+                    application.showToDo();
                     break;
                 case 3:
-                    application.showAllTodos();
+                    application.showAllToDos();
                     break;
                 case 4:
-                    application.updateTodo();
+                    application.updateToDo();
                     break;
                 case 5:
-                    application.deleteTodo();
+                    application.deleteToDo();
                     break;
                 case 6:
                     exit = true;
