@@ -12,13 +12,14 @@ public class Menu {
     private Scanner lineScanner;
     private Scanner intScanner;
 
-    public Menu(){ 
+    public Menu() {
 
         application = new Application();
         scanner = new Scanner(System.in);
         lineScanner = new Scanner(System.in);
         intScanner = new Scanner(System.in);
     }
+
     public void showMenu() {
 
         boolean exit = false;
@@ -60,7 +61,15 @@ public class Menu {
 
             System.out.println();
         }
+        scanner.close();
+        lineScanner.close();
+        intScanner.close();
 
+    }
+
+    private int getIntInput(String message) { // Metod för att läsa in heltal från användaren
+        System.out.print(message);
+        return intScanner.nextInt();
     }
 }
 
