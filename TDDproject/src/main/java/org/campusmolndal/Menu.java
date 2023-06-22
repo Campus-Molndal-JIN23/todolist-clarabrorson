@@ -66,7 +66,6 @@ public class Menu {
         intScanner.close();
 
     }
-
     private int getIntInput(String message) { // Metod för att läsa in heltal från användaren
         System.out.print(message);
         return intScanner.nextInt();
