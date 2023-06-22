@@ -7,7 +7,18 @@ public class Menu {
     //Meny
     //Switch case
     //Anropa metoder från MongoDbFacade
+    private Application application;
+    private Scanner scanner;
+    private Scanner lineScanner;
+    private Scanner intScanner;
 
+    public Menu(){ 
+
+        application = new Application();
+        scanner = new Scanner(System.in);
+        lineScanner = new Scanner(System.in);
+        intScanner = new Scanner(System.in);
+    }
     public void showMenu() {
 
         boolean exit = false;
