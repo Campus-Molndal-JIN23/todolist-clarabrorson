@@ -1,6 +1,9 @@
 package org.campusmolndal;
 
+import java.util.List;
+import java.util.Scanner;
+
 public class Application {
 
-    //Radera denna klass?
 }
+
