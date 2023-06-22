@@ -21,6 +21,7 @@ public class Application {
         intScanner = new Scanner(System.in);
     }
 
+    //Lägg till felhantering för samma ID
     public void addToDo() {
         System.out.println("Skriv in en todo: ");
         String id = getStringInput("Ange ID: ");

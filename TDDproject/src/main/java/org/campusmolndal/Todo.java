@@ -32,8 +32,10 @@ public class Todo {
     }
 
     public String get_id() {
-
-        return _id;
+    if (_id == null) {
+        return null;
+    }
+    return _id;
     }
 
     public String getText() {
