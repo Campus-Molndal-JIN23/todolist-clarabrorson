@@ -33,27 +33,13 @@ public class Menu {
             int choice = getIntInput("Ange ditt val: ");
 
             switch (choice) {
-                case 1:
-                    application.addToDo();
-                    break;
-                case 2:
-                    application.showToDo();
-                    break;
-                case 3:
-                    application.showAllToDos();
-                    break;
-                case 4:
-                    application.updateToDo();
-                    break;
-                case 5:
-                    application.deleteToDo();
-                    break;
-                case 6:
-                    exit = true;
-                    break;
-                default:
-                    System.out.println("Ogiltigt val. Försök igen.");
-                    break;
+                case 1 -> application.addToDo();
+                case 2 -> application.showToDo();
+                case 3 -> application.showAllToDos();
+                case 4 -> application.updateToDo();
+                case 5 -> application.deleteToDo();
+                case 6 -> exit = true;
+                default -> System.out.println("Ogiltigt val. Försök igen.");
             }
 
             System.out.println();
