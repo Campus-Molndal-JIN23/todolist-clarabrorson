@@ -3,12 +3,17 @@ import java.io.File;
 import java.util.Properties;
 
 public class KeyReader {
+    /**
+     * Den här klassen läser in en fil som innehåller en connectionString till en databas.
+     * Filen ska ligga i användarens hemkatalog och heta todoKey.txt
+     * Om ingen fil hittas så skapas en ny fil med en connectionString till en lokal databas.
+     */
     Properties prop;
 
     public KeyReader(String file) {
-        // Skapa ett nytt Properties-objekt
+
         prop = new Properties();
-        // Hämta sökvägen till användarens hemkatalog
+
         String userHome = System.getProperty("user.home");
 
         String filename= "/Documents/todoKey/" + file + ".txt";

@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Application {
+    /**
+     * Den här klassen hanterar logiken för applikationen.
+     * Den här klassen anropar metoder i MongoDbFacade.
+     * Den här klassen hanterar inmatning från användaren.
+     */
 
     private MongoDbFacade dbFacade;
     private Scanner lineScanner;
@@ -33,6 +38,7 @@ public class Application {
         System.out.println("Visa en todo");
         String id = getStringInput("Ange ID: ");
         Todo todo = dbFacade.getTodoById(id);
+
         if (todo != null) {
             System.out.println(todo);
         } else {
@@ -73,13 +79,18 @@ public class Application {
 
     }
 
-    //Hjälpt av chatGPT
+    /**
+     * Metoder för att läsa in en sträng från användaren
+     * behövs för att hantera eventuella felaktiga inmatningar från användaren
+     * Hjälpt av chatGPT
+     * @param message
+     * @return
+     */
     private String getStringInput(String message) {
         System.out.print(message);
         return lineScanner.nextLine();
     }
 
-    // Hjälpt av chatGPT
     private boolean getBooleanInput(String message) {
         System.out.print(message);
         String input = lineScanner.nextLine();

@@ -3,6 +3,11 @@ package org.campusmolndal;
 import java.util.Scanner;
 
 public class Menu {
+    /**
+     * Den här klassen hanterar menyn för applikationen.
+     * Den skapar en instans av Application och anropar metoder i den klassen.
+     * Den här klassen hanterar inmatning från användaren.
+     */
 
     private Application application;
     private Scanner scanner;
@@ -41,7 +46,6 @@ public class Menu {
                 case 6 -> exit = true;
                 default -> System.out.println("Ogiltigt val. Försök igen.");
             }
-
             System.out.println();
         }
         scanner.close();
@@ -49,7 +53,7 @@ public class Menu {
         intScanner.close();
 
     }
-    private int getIntInput(String message) { // Metod för att läsa in heltal från användaren
+    private int getIntInput(String message) {
         System.out.print(message);
         return intScanner.nextInt();
     }

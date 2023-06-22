@@ -9,7 +9,13 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class TodoTests {
-
+ /**
+  * Den här klassen innehåller tester för klassen Todo.
+  * Mockito används för att mocka Todo-objekt och Document-objekt.
+  * Testerna kontrollerar att Todo-objekt kan skapas från Document-objekt
+  * och att Todo-objekt kan konverteras till Document-objekt.
+  * Testerna kontrollerar också att Todo-objekt kan skapas med rätt värden.
+  */
  private Todo todoMock;
  private Document docMock;
 
@@ -31,27 +37,25 @@ public class TodoTests {
  }
  @Test
  void testFromDoc() {
-  // Anropa metoden fromDoc() med det mockade Document-objektet
+
   Todo todo = Todo.fromDoc(docMock);
 
-  // Kontrollera att rätt värden har returnerats
   assertEquals("test id", todo.get_id());
   assertEquals("Test Todo", todo.getText());
   assertEquals(true, todo.isDone());
  }
  @Test
  void testToDoc() {
-  // Definiera förväntade värden för metoden toDoc()
+
   Document expectedDoc = new Document()
           .append("_id", "test id")
           .append("text", "Test Todo")
           .append("done", true);
 
   when(todoMock.toDoc()).thenReturn(expectedDoc);
-  // Anropa metoden toDoc() på den mockade Todo-objektet
+
   Document doc = todoMock.toDoc();
 
-  // Kontrollera att rätt värden har returnerats
   assertEquals("test id", doc.getString("_id"));
   assertEquals("Test Todo", doc.getString("text"));
   assertEquals(true, doc.getBoolean("done"));

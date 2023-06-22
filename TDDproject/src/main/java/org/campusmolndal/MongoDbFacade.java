@@ -15,14 +15,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MongoDbFacade {
-    MongoClient client; //Instans av MongoDB-klienten som används för att ansluta till en databas.
-    MongoDatabase db; //Instansen av en databas som används för att kommunicera med databasen.
-    MongoCollection<Document> collection; //MongoCollection innehåller dokument som lagras i databasen.
-    KeyReader keyReader = new KeyReader("todoKey"); // SKapa en instans av KeyReader
-
-    String connString = keyReader.getKey(); // MongoDB-anslutningssträngen som definierar plats för databasen.
-    String collectionName = "todo"; // Namnet på den samling/dokument som innehåller todo
-    String databaseName = "todoDB"; // Namnet på databasen
+    /**
+     * Klass för att hantera anslutningen till MongoDB.
+     * Klassen innehåller metoder för att utföra CRUD operationer.
+     * MongoDB-klienten skapas med hjälp av en ConnectionString.
+     * Denna ConnectionString innehåller information om hur vi ska ansluta till databasen.
+     */
+    MongoClient client;
+    MongoDatabase db;
+    MongoCollection<Document> collection;
+    KeyReader keyReader = new KeyReader("todoKey");
+    String connString = keyReader.getKey();
+    String collectionName = "todo";
+    String databaseName = "todoDB";
 
     public MongoDbFacade(String connString, String databaseName, String collectionName) {
         this.connString = connString;
@@ -63,8 +68,6 @@ public class MongoDbFacade {
         collection.createIndex(new Document("todo", 1),
                 new IndexOptions().unique(true));
     }
-
-    // Utför CRUD operationer
 
     public void addTodo(Todo todo) {
         Document doc = todo.toDoc();
