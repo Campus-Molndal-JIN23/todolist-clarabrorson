@@ -63,6 +63,7 @@ public class MongoDbFacade {
             System.out.println(ex.getMessage()); // Skriver ut felet som orsakade anslutningsmisslyckandet.
         }
     }
+
     // Metod för att skapa ett index på todo-fältet i samlingen.
     public void createIndex() {
         collection.createIndex(new Document("todo", 1),
@@ -114,12 +115,12 @@ public class MongoDbFacade {
 
             System.out.println("Todos tillagda i databasen!");
         } catch (Exception ex) {
-            System.out.println("Misslyckades att lägga till todos i databasen!");
             System.out.println(ex.getMessage());
         }
+
+
     }
-
-
 }
+
 
 

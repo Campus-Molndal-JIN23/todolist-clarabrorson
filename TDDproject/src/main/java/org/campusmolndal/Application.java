@@ -21,10 +21,17 @@ public class Application {
         intScanner = new Scanner(System.in);
     }
 
-    //Lägg till felhantering för samma ID
     public void addToDo() {
         System.out.println("Skriv in en todo: ");
         String id = getStringInput("Ange ID: ");
+
+        // Kontrollera om id redan finns i databasen
+        Todo existingTodo = dbFacade.getTodoById(id);
+        if (existingTodo != null) {
+            System.out.println("En todo med samma ID finns redan i databasen!");
+            return;
+        }
+
         String text = getStringInput("Ange text: ");
         boolean done = getBooleanInput("Är den klar? (ja/nej): ");
 
@@ -32,7 +39,6 @@ public class Application {
         dbFacade.addTodo(todo);
 
         System.out.println("Todo'n har lagts till!");
-
     }
 
     public void showToDo() {
