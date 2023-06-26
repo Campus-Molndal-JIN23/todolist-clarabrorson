@@ -1,5 +1,6 @@
 package org.campusmolndal;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -53,9 +54,17 @@ public class Menu {
         intScanner.close();
 
     }
+
     private int getIntInput(String message) {
-        System.out.print(message);
-        return intScanner.nextInt();
+        while (true) {
+            try {
+                System.out.print(message);
+                return scanner.nextInt(); // Returnerar det användaren matar in
+            } catch (InputMismatchException e) { // Fångar upp om användaren matar in något annat än en siffra
+                System.out.println("Felaktig inmatning. Var god ange en siffra.");
+                scanner.next();
+            }
+        }
     }
 }
 
