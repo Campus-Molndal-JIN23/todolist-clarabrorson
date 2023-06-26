@@ -61,7 +61,7 @@ public class Menu {
                 System.out.print(message);
                 return scanner.nextInt(); // Returnerar det användaren matar in
             } catch (InputMismatchException e) { // Fångar upp om användaren matar in något annat än en siffra
-                System.out.println("Felaktig inmatning. Var god ange en siffra.");
+                System.out.println("Var god ange en siffra.");
                 scanner.next();
             }
         }
