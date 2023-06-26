@@ -1,11 +1,12 @@
 # Projekt TODO
 
 ## Clara Brorson
+Testkört av: Andrea Torres Rivas
 
 ### Beskrivning
 Projektet är en Todo - applikation som använder en mondoDB databas för att lagra hantera todos. Projektet består av olika klasser som ansvarar för olika områden av programmet. MongoDBFacade klassen hanterar exempelvis anslutningen till databasen samt innehåller metoder för att utföra CRUD - operationer. KeyReader klassen har hand om anslutningssträngen till databasen, om anslutningssträngen inte kan lokaliseras ansluter den till en lokal databas.
 
-Todo klassen kan beskrivas som en modell för en todo, den innehåller dess egenskaper samt metoder. Klassen TodoTests innehåller enhetstest som testar metoderna i Todo klassen. 
+Todo klassen kan beskrivas som en modell för en todo, den innehåller dess egenskaper samt metoder. Klassen TodoTests innehåller enhetstest som testar metoderna i Todo klassen, samt mockning av databasen. 
 
 Menu klassen hanterar menyn i programmet. Den skapar en instans av Apllication klassen och anropar dess metoder. Application klassen ansvarar för logiken och använder sig av MongoDBFacade för att utföra CRUD - operationer. Den hanterar inmatning från användaren. 
 
