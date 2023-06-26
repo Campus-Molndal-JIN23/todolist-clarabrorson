@@ -25,5 +25,7 @@ The project gave me valuable experience implementing CRUD operations and integra
 ## Tests
 
 + Locate TodoTests.java
-+ Right-click on the specific test method you wish to run.
++ Click on the green arrow next to the class name to run all tests.
++ Or click on the green arrow next to the test method to run a specific test.
+
 
