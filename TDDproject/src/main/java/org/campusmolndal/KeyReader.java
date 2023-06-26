@@ -18,8 +18,8 @@ public class KeyReader {
 
         String filename= "/Documents/todoKey/" + file + ".txt";
         File newfile = new File("/Documents/todoKey/" + file + ".txt");
-        if (!newfile.exists()) {
-            try {
+        if (!newfile.exists()) { // Om filen inte finns så skapa en ny fil
+            try { // Skapa en ny fil med en connectionString till en lokal databas
                 prop.setProperty("connectionString", "mongodb://localhost:27017");
                 prop.setProperty("database", "todoDB");
                 prop.setProperty("collection", "todo");

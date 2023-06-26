@@ -36,7 +36,7 @@ public class Application {
         boolean done = getBooleanInput("Är den klar? (ja/nej): ");
 
         Todo todo = new Todo(id, text, done);
-        dbFacade.addTodo(todo);
+        dbFacade.addTodo(todo); // Lägg till todo i databasen
 
         System.out.println("Todo'n har lagts till!");
     }
@@ -44,7 +44,7 @@ public class Application {
     public void showToDo() {
         System.out.println("Visa en todo");
         String id = getStringInput("Ange ID: ");
-        Todo todo = dbFacade.getTodoById(id);
+        Todo todo = dbFacade.getTodoById(id); // Hämta todo från databasen
 
         if (todo != null) {
             System.out.println(todo);
@@ -56,7 +56,7 @@ public class Application {
 
     public void showAllToDos() {
         System.out.println("Visa alla todos");
-        List<Todo> todos = dbFacade.getAllTodos();
+        List<Todo> todos = dbFacade.getAllTodos(); // Hämta alla todos från databasen
         for (Todo todo : todos) {
             System.out.println(todo);
         }
@@ -70,7 +70,7 @@ public class Application {
         boolean newDone = getBooleanInput("Är den klar? (ja/nej): ");
 
         Todo updatedTodo = new Todo (id, newText, newDone);
-        dbFacade.updateTodoById(id, updatedTodo);
+        dbFacade.updateTodoById(id, updatedTodo); // Uppdatera todo i databasen
 
         System.out.println("Todo'n har uppdaterats!");
     }
@@ -80,24 +80,20 @@ public class Application {
         System.out.println("Ta bort en todo");
         String id = getStringInput("Ange ID: ");
 
-        dbFacade.deleteTodoById(id);
+        dbFacade.deleteTodoById(id); // Ta bort todo från databasen
 
         System.out.println("Todo'n har tagits bort!");
 
     }
 
-    /**
-     * Metoder för att läsa in en sträng från användaren
-     * behövs för att hantera eventuella felaktiga inmatningar från användaren
-     * Hjälpt av chatGPT
-     * @param message
-     * @return
-     */
+    // Metod för att läsa in en sträng från användaren
+    // Hjälpt av chatGPT
     private String getStringInput(String message) {
         System.out.print(message);
         return lineScanner.nextLine();
     }
-
+    // Metod för att läsa in en boolean från användaren
+    // Hjälpt av chatGPT
     private boolean getBooleanInput(String message) {
         System.out.print(message);
         String input = lineScanner.nextLine();

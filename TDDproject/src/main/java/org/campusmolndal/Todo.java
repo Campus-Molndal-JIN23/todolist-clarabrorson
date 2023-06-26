@@ -14,6 +14,7 @@ public class Todo {
         this.done = done;
     }
 
+    // Metod för att skapa ett Todo-objekt från ett Document-objekt
     public static Todo fromDoc(Document doc){
 
         String _id=doc.getString("_id");
@@ -23,6 +24,7 @@ public class Todo {
         return new Todo (_id, text, done);
     }
 
+    // Metod för att skapa ett Document-objekt från ett Todo-objekt
     public Document toDoc() {
         Document doc = new Document();
         doc.append("_id", _id);

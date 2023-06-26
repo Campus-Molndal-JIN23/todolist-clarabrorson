@@ -16,9 +16,12 @@ public class TodoTests {
   * och att Todo-objekt kan konverteras till Document-objekt.
   * Testerna kontrollerar också att Todo-objekt kan skapas med rätt värden.
   */
- private Todo todoMock;
- private Document docMock;
+ private Todo todoMock; // Mockat Todo-objekt
+ private Document docMock; // Mockat Document-objekt
 
+ /**
+  * Den här metoden körs innan varje test.
+  */
  @BeforeEach
  void setUp() {
   todoMock = mock(Todo.class);
@@ -35,6 +38,13 @@ public class TodoTests {
   when(docMock.getBoolean("done")).thenReturn(true);
 
  }
+
+ /**
+  * Metoderna nedan testar att Todo-objekt kan skapas från Document-objekt
+  * och att Todo-objekt kan konverteras till Document-objekt.
+  * Testerna kontrollerar också att Todo-objekt kan skapas med rätt värden.
+  * Mockito används för att mocka Todo-objekt och Document-objekt.
+  */
  @Test
  void testFromDoc() {
 

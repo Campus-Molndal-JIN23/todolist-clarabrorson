@@ -40,7 +40,7 @@ public class MongoDbFacade {
 
         Connect();
     }
-
+    // Metod för att skapa en anslutning till databasen.
     private void Connect() {
         ServerApi serverApi = ServerApi.builder()
                 .version(ServerApiVersion.V1)
@@ -59,8 +59,8 @@ public class MongoDbFacade {
 
         } catch (Exception ex) {
 
-            System.out.println("Misslyckad anslutning!"); // Skriver ut ett meddelande om anslutningen misslyckades.
-            System.out.println(ex.getMessage()); // Skriver ut felet som orsakade anslutningsmisslyckandet.
+            System.out.println("Misslyckad anslutning!");
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -71,39 +71,39 @@ public class MongoDbFacade {
     }
 
     public void addTodo(Todo todo) {
-        Document doc = todo.toDoc();
-        collection.insertOne(doc);
+        Document doc = todo.toDoc(); // Skapar ett dokument av todo-objektet.
+        collection.insertOne(doc); // Lägger till
     }
 
     public void updateTodoById(String id, Todo updatedTodo) {
         Document filter = new Document("_id", id);
-        Document update = new Document("$set", updatedTodo.toDoc());
-        collection.updateOne(filter, update);
+        Document update = new Document("$set", updatedTodo.toDoc()); // $set är en operator som används för att uppdatera ett dokument.
+        collection.updateOne(filter, update); // Uppdaterar
     }
 
     public void deleteTodoById(String id) {
-        Document filter = new Document("_id", id);
-        collection.deleteOne(filter);
+        Document filter = new Document("_id", id); // Skapar ett filter som matchar dokumentet med det angivna id:t.
+        collection.deleteOne(filter); // Tar bort
     }
 
     public Todo getTodoById(String id) {
-        Document filter = new Document("_id", id);
-        Document doc = collection.find(filter).first();
-        if (doc != null) {
+        Document filter = new Document("_id", id); // Skapar ett filter som matchar dokumentet med det angivna id:t.
+        Document doc = collection.find(filter).first(); // Hämtar det första dokumentet som matchar filtret.
+        if (doc != null) { // Om dokumentet inte är null så skapas en instans av Todo med hjälp av dokumentet.
             return Todo.fromDoc(doc);
         }
         return null;
     }
 
     public List<Todo> getAllTodos() {
-        List<Todo> todos = new ArrayList<>();
+        List<Todo> todos = new ArrayList<>(); // Skapar en lista för att lagra alla todos.
         for (Document doc : collection.find()) {
             Todo todo = Todo.fromDoc(doc);
             todos.add(todo);
         }
         return todos;
     }
-
+    // Metod för att lägga till några exempel-todos i databasen.
     public void addSampleTodos() {
         Todo todo1 = new Todo("1", "Köpa kaffe", false);
         Todo todo2 = new Todo("2", "Hämta paket", true);
