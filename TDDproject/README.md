@@ -11,12 +11,15 @@ The application can help to solve the problem of task managment and help manage 
 The project gave me valuable experience implementing CRUD operations and integrating with a MongoDB database. 
 
 ## Installation
-+ Javaversion: 19 java version 19.0.2
-+ Database: MongoDB
-  
+#### Javaversion: 19 java version 19.0.2
+#### Database: MongoDB
+
++ Download and install [MongoDB](https://www.mongodb.com/try/download/community)
++ Download and install [IntelliJ](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 + Clone the project on GitHub and open it in IntelliJ.
 + Import the project folder and its accompanying libraries.
 + Launch the program from the Main class.
++ The program will start with a menu system that allows the user to choose between CRUD operations.
   
 ## License
 
