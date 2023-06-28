@@ -13,6 +13,7 @@ public class Main {
 
         KeyReader keyReader = new KeyReader("todoKey");
 
+
         dbFacade.addSampleTodos();
 
         Logger.getLogger("org.mongodb.driver")
