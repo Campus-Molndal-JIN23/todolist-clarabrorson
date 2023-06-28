@@ -20,7 +20,13 @@ The project gave me valuable experience implementing CRUD operations and integra
 + Import the project folder and its accompanying libraries.
 + Launch the program from the Main class.
 + The program will start with a menu system that allows the user to choose between CRUD operations.
-  
+
+## Dependencies
++ junit jupiter 5
++ Mockito Core 5.3.1
++ MongoDB Driver 4.9.1
++ JSON 20230227
+
 ## License
 
 [MIT License](https://choosealicense.com/licenses/mit/).
