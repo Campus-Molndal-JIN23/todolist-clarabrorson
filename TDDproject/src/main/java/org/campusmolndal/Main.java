@@ -1,5 +1,4 @@
 package org.campusmolndal;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +17,7 @@ public class Main {
 
         Logger.getLogger("org.mongodb.driver")
                 .setLevel(Level.SEVERE);
+
 
 
 
