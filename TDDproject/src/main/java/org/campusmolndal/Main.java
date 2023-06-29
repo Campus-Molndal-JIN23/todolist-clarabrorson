@@ -3,7 +3,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
+
     public static void main(String[] args) {
+        Logger.getLogger("org.mongodb.driver").setLevel(Level.SEVERE);
 
         Menu menu = new Menu();
         menu.showMenu();
@@ -12,16 +14,7 @@ public class Main {
 
         KeyReader keyReader = new KeyReader("todoKey");
 
-
         dbFacade.addSampleTodos();
-
-        Logger.getLogger("org.mongodb.driver")
-                .setLevel(Level.SEVERE);
-
-
-
-
-
     }
 }
 
