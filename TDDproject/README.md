@@ -21,11 +21,19 @@ The project gave me valuable experience implementing CRUD operations and integra
 + Launch the program from the Main class.
 + The program will start with a menu system that allows the user to choose between CRUD operations.
 
+## Testing and Execution
++ To run the program, open the /TDDproject/src/main/java/org.campusmolndal/main file and click on Run in the IntelliJ toolbar.
++ To test the program, open the /TDDproject/src/test/java/org.campusmolndal/TodoTests file and click on Run in the IntelliJ toolbar.
+
 ## Dependencies
 + junit jupiter 5
 + Mockito Core 5.3.1
 + MongoDB Driver 4.9.1
 + JSON 20230227
+
+## Extra libraries
++ slf4j is included because MongoDB requires it
++ ch.qos.logback is included because slf4j requires it
 
 ## License
 
